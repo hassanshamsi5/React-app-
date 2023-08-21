@@ -9,9 +9,6 @@ function App(props) {
         let newText = text.toLocaleLowerCase()
         setText(newText)
     }
-
-
-
     const handlechange = (event) => {
         setText(event.target.value)
     }
