@@ -42,6 +42,7 @@ function App() {
             setCount(oldValue => oldValue + 1);
         }
     };
+
     return (
         <>
             <Child getData={getData} />
