@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { db } from './config/firebase';
+import { db } from '../config/firebase';
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query } from 'firebase/firestore';
-import Todo from './todoapp';
+import Todo from '../todoapp';
 import { AiOutlinePlus } from 'react-icons/ai'
 
 const style = {
