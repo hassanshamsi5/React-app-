@@ -12,7 +12,7 @@ export default function About() {
             setmyStyle({
                 color: 'black',
                 backgroundColor: 'white'
-            }
+            })
             setBtnText('Enable Dark Mode')
         } else {
             setmyStyle({
