@@ -28,6 +28,17 @@ function App(props) {
         msg.text = text;
         window.speechSynthesis.speak(msg);
     }
+    const handleCopy = () => {
+        var text = document.getElementById('myBox')
+        text.select();
+        text.setSelectionRange(0,9999);
+        navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpace = ()=>{
+        let newText = text.split(/[ ]+/)
+        setText(newText.join(" "))
+
+    }
     const handleChange = (event) => {
         setText(event.target.value);
     }
@@ -36,13 +47,16 @@ function App(props) {
             <div className="container">
                 <h1 className="display-6 fw-bold">{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleChange} cols="30" rows="10"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleChange} id="myBox" cols="30" rows="10"></textarea>
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>UpperCase</button>
                 <button className="btn btn-primary mx-1" onClick={handleDownClick}>LowerCase</button>
                 <button className="btn btn-primary mx-1" onClick={capitalizeText}>Capitalize Text</button>
                 <button className="btn btn-primary mx-1" onClick={clearText}>Clear Text</button>
                 <button className="btn btn-outline-warning mx-1" onClick={speak}>Speak</button>
+                <button className="btn btn-outline-warning mx-1"  onClick={handleCopy}>Copy Text</button>
+                <button className="btn btn-outline-warning mx-1"  onClick={handleExtraSpace}>Remove Extra Space</button>
+
             </div>
             <div className="container">
                 <h1 className="fs-3 fw-bold">Your Text Summary</h1>
