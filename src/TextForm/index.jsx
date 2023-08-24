@@ -62,7 +62,7 @@ function App(props) {
                 <p>{text.split(" ").length} words and  {text.length} characters </p>
                 <p>{0.008 * text.split(" ").length} <b> Minutes Read</b></p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
             </div>
         </div>
     )
