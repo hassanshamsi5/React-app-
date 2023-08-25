@@ -6,14 +6,19 @@ function App(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted To Uppercase","success")
     }
     const handleDownClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted To LowerCase","success")
+
     }
     const clearText = () => {
         let newText = ''
         setText(newText);
+        props.showAlert("TextClear","success")
+
         // window.location.reload(false);
     }
     const capitalizeText = () => {
@@ -22,22 +27,28 @@ function App(props) {
             .map(word => word.charAt(0).toLocaleUpperCase() + word.slice(1).toLowerCase())
             .join(" ")
         setText(newText)
+        props.showAlert("Converted To CapitalizeText","success")
+
     }
     const speak = () => {
         let msg = new SpeechSynthesisUtterance();
         msg.text = text;
         window.speechSynthesis.speak(msg);
+        props.showAlert("Speak","success")
+
     }
     const handleCopy = () => {
         var text = document.getElementById('myBox')
         text.select();
         text.setSelectionRange(0,9999);
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Copy all Text","success")
+
     }
     const handleExtraSpace = ()=>{
         let newText = text.split(/[ ]+/)
         setText(newText.join(" "))
-
+        props.showAlert("Remove Extra Space","success")
     }
     const handleChange = (event) => {
         setText(event.target.value);

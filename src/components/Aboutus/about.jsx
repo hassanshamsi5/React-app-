@@ -69,10 +69,10 @@ export default function About() {
             {/* <div className="container">
                 <button className='btn btn-primary my-3' onClick={toggleStyle}> {btnText} </button>
             </div> */}
-            <div class="container my-3">
-                <label class="w3-switch">
+            <div className="container my-3">
+                <label className="w3-switch">
                     <input onClick={toggleStyle} type="checkbox" />
-                    <span class="w3-slider w3-round"></span>
+                    <span className="w3-slider w3-round"></span>
                 </label>
                 {btnText}
             </div>

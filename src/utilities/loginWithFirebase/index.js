@@ -43,7 +43,7 @@ const App = () => (
     onFinishFailed={onFinishFailed}
     autoComplete="off"
   >
-    <h1>Login with firebase Authentication
+    <h1 className='text-center'>Login with firebase Authentication
 </h1>
     <Form.Item
       label="email"

@@ -23,33 +23,36 @@ function App() {
     };
 
     return (
-        <div className="main">
-            <h1>Post API</h1>
-            <div className="search-container">
-                <input
-                    type="text"
-                    placeholder="Enter Post ID"
-                    value={postId}
-                    onChange={handlePostIdChange}
-                />
-                <button className='btn btn-primary' onClick={handleViewDetails}>View Details</button>
-            </div>
-            {selectedPost && (
-                <div className="selected-post">
-                    <h2>Selected Post Details</h2>
-                    <p>ID: {selectedPost.id}</p>
-                    <h3>Title: {selectedPost.title}</h3>
-                    <p>Body: {selectedPost.body}</p>
-                    <div className='row'>
-                        <div className='col-md-6'>
-                            <img src={selectedPost.thumbnailUrl} alt={`Thumbnail ${selectedPost.id}`} />
-                        </div>
-                        <div className='col-md-6'>
-                            <img src={selectedPost.url} alt={`url ${selectedPost.id}`} />
+        <div className='container'>
+
+            <div className="main">
+                <h1>Post API</h1>
+                <div className="search-container">
+                    <input
+                        type="text"
+                        placeholder="Enter Post ID"
+                        value={postId}
+                        onChange={handlePostIdChange}
+                    />
+                    <button className='btn btn-primary' onClick={handleViewDetails}>View Details</button>
+                </div>
+                {selectedPost && (
+                    <div className="selected-post">
+                        <h2>Selected Post Details</h2>
+                        <p>ID: {selectedPost.id}</p>
+                        <h3>Title: {selectedPost.title}</h3>
+                        <p>Body: {selectedPost.body}</p>
+                        <div className='row'>
+                            <div className='col-md-6'>
+                                <img src={selectedPost.thumbnailUrl} alt={`Thumbnail ${selectedPost.id}`} />
+                            </div>
+                            <div className='col-md-6'>
+                                <img src={selectedPost.url} alt={`url ${selectedPost.id}`} />
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
