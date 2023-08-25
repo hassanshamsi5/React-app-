@@ -16,7 +16,6 @@ const style = {
 }
 
 function App() {
-
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
 
