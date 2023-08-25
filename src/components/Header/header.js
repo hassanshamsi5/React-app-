@@ -104,7 +104,7 @@ function Header(props) {
                 </Link>
               </li>
             </ul>
-            <div className="d-flex">
+            <div className="d-flex rounded">
               <div className="bg-primary rounded mx-2" onClick={() => { props.toggleMode('primary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
             </div>
             <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
