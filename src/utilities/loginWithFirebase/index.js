@@ -8,7 +8,11 @@ const onFinish = (values) => {
       // Signed in 
       const user = userCredential.user;
       console.log(user, "users");
-      //   window.location.reload(false);
+      setInterval(() => {
+        window.location.reload(false);
+      }, 5000);
+
+
 
       // ...
     })
@@ -44,7 +48,7 @@ const App = () => (
     autoComplete="off"
   >
     <h1 className='text-center'>Login with firebase Authentication
-</h1>
+    </h1>
     <Form.Item
       label="email"
       name="email"

@@ -30,11 +30,11 @@ function App() {
                 <div className="search-container">
                     <input
                         type="text"
-                        placeholder="Enter Post ID"
+                        placeholder="Enter Post ID No#"
                         value={postId}
                         onChange={handlePostIdChange}
                     />
-                    <button className='btn btn-primary' onClick={handleViewDetails}>View Details</button>
+                    <button className='btn btn-primary mx-3' onClick={handleViewDetails}>View Details</button>
                 </div>
                 {selectedPost && (
                     <div className="selected-post">
