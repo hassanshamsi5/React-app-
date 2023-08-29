@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useState } from 'react';
 import File from '../src/components/file/file'
 import Text from './TextForm/index'
@@ -8,6 +7,7 @@ import Login from "./utilities/loginWithFirebase/index"
 import Header from './components/Header/header';
 import Aboutus from './components/Aboutus/about'
 import Alert from './components/Alert/alert';
+import News from './components/newsapi';
 import {BrowserRouter,Route,Routes,} from "react-router-dom";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       type: type,
     })
     setTimeout(() => {
-      setalert(null)
+      setalert(null)  
     }, 1500);
   }
 
@@ -48,9 +48,12 @@ function App() {
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/file" element={<File />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/news" element={<News />} />
       </Routes> 
     </BrowserRouter>
   );
 }
 
 export default App;
+
+
