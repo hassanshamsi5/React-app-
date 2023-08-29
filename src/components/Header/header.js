@@ -108,6 +108,11 @@ function Header(props) {
                   News
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/data">
+                  Data
+                </Link>
+              </li>
             </ul>
             {/* <div className="d-flex rounded">
               <div className="bg-primary rounded mx-2" onClick={() => { props.toggleMode('primary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>

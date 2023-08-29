@@ -8,6 +8,8 @@ import Header from './components/Header/header';
 import Aboutus from './components/Aboutus/about'
 import Alert from './components/Alert/alert';
 import News from './components/newsapi';
+import Data from './components/newsapi/sample';
+
 import {BrowserRouter,Route,Routes,} from "react-router-dom";
 
 function App() {
@@ -49,6 +51,9 @@ function App() {
         <Route path="/file" element={<File />} />
         <Route path="/login" element={<Login />} />
         <Route path="/news" element={<News />} />
+        <Route path="/data" element={<Data />} />
+
+
       </Routes> 
     </BrowserRouter>
   );
