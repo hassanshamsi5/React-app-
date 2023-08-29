@@ -98,11 +98,6 @@ function Header(props) {
                   Login page firebase
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/alert">
-
-                </Link>
-              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/news">
                   News
@@ -110,7 +105,7 @@ function Header(props) {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/data">
-                  Data
+                  change color
                 </Link>
               </li>
             </ul>
