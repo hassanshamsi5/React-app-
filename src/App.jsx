@@ -9,7 +9,7 @@ import Aboutus from './components/Aboutus/about'
 import Alert from './components/Alert/alert';
 import News from './components/newsapi';
 import Data from './components/newsapi/sample';
-
+import Calculator from './components/calculator';
 import {BrowserRouter,Route,Routes,} from "react-router-dom";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   }
 
   const toggleMode = () => {
-    if (mode === 'light') {
+    if (mode === 'light ') {
       setmode('dark')
       document.body.style.backgroundColor = '#042743'
       document.body.style.color = 'white'
@@ -52,8 +52,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/news" element={<News />} />
         <Route path="/data" element={<Data />} />
-
-
+        <Route path="/cal" element={<Calculator />} />
       </Routes> 
     </BrowserRouter>
   );
