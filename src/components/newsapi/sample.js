@@ -1,5 +1,7 @@
-// import { useState } from "react";
+// notepad (Get-PSReadlineOption).HistorySavePath
 
+
+// import { useState } from "react";
 // function News(props) {
 //     const [bgcolor, setBgcolor] = useState("black");
 
