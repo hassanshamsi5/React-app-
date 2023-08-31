@@ -42,7 +42,6 @@ function App() {
       showAlert("Light mode has been enable", "success");
     }
   }
-  
   return (
     <BrowserRouter>
       <Header mode={mode} toggleMode={toggleMode} />
