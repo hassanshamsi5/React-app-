@@ -140,8 +140,8 @@ function App() {
   };
 
   return (
-    <div className="container col-8 h-screen w-screen p-4 bg-gradient-primary to-secondary">
-      <div className="bg-gradient-primary to-secondary max-w-500 w-full m-auto rounded-md shadow-lg p-4">
+    <div className="container col-lg-8 col h-screen w-screen bg-gradient-primary to-secondary">
+      <div className="bg-gradient-primary to-secondary max-w-500 w-full m-auto rounded-md shadow-lg">
         <h3 className="text-center font-weight-bold text-dark p-2">Todo App</h3>
         <form onSubmit={createTodo} className="d-flex justify-content-center">
           <input

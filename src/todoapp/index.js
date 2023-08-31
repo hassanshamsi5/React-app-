@@ -40,8 +40,7 @@ const style = {
 
 const Todo = ({ todo, toggleComplete, deleteTodo }) => {
   return (
-    <div className='container col-10 '>
-
+    <div className='container col-lg-8 col'>
       <li className={todo.completed ? style.liComplete : style.li}>
         <div className={style.row}>
           <input
@@ -62,7 +61,6 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
         </button>
       </li>
     </div>
-  );
-};
-
+  )
+}
 export default Todo;

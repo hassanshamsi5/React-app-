@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { auth, createUserWithEmailAndPassword } from '../../config/firebase';
-const onFinish = (values) => {
 
+const onFinish = (values) => {
   createUserWithEmailAndPassword(auth, values.email, values.password)
     .then((userCredential) => {
       // Signed in 
@@ -11,24 +11,19 @@ const onFinish = (values) => {
       setInterval(() => {
         window.location.reload(false);
       }, 5000);
-
-
-
-      // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage, errorCode);
-      // ..
-
     });
 };
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
+
 const App = () => (
-  <Form
+  <Form className='container col-lg-4 col'
     name="basic"
     labelCol={{
       span: 8,
@@ -92,6 +87,7 @@ const App = () => (
         span: 16,
       }}
     >
+      
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

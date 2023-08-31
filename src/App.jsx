@@ -10,7 +10,8 @@ import Alert from './components/Alert/alert';
 import News from './components/newsapi';
 import Data from './components/newsapi/sample';
 import Calculator from './components/calculator';
-import {BrowserRouter,Route,Routes,} from "react-router-dom";
+import Profile from './components/profile/profile';
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 
 function App() {
   const [mode, setmode] = useState('light')
@@ -22,38 +23,42 @@ function App() {
       type: type,
     })
     setTimeout(() => {
-      setalert(null)  
+      setalert(null)
     }, 1500);
   }
 
   const toggleMode = () => {
-    if (mode === 'light ') {
+     console.log("Current mode:", mode);  
+
+    if (mode === "light") {
       setmode('dark')
-      document.body.style.backgroundColor = '#042743'
-      document.body.style.color = 'white'
-      showAlert("Dark mode has been enable", "success")
+      document.body.style.backgroundColor = "#042743";
+      document.body.style.color = 'white';
+      showAlert("Dark mode has been enable", "success");
     } else {
       setmode('light')
-      document.body.style.backgroundColor = 'white'
-      document.body.style.color = 'black'
-      showAlert("Light mode has been enable", "success")
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+      showAlert("Light mode has been enable", "success");
     }
   }
+  
   return (
     <BrowserRouter>
       <Header mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <Routes>
         <Route path="/" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/api" element={<Api />} />
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/file" element={<File />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/news" element={<News />} />
         <Route path="/data" element={<Data />} />
         <Route path="/cal" element={<Calculator />} />
-      </Routes> 
+        <Route path="/profile/:id/me" element={<Profile />} />
+      </Routes>
     </BrowserRouter>
   );
 }
