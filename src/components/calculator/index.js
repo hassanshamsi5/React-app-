@@ -21,12 +21,13 @@ function App() {
     const Reset = () => {
         setInput('')
     }
-    const params = useParams()
-    console.log("id",params);
+    
+    const {id} = useParams()
+
     return (
         <div className='container'>
             <div className="calculator">
-                {/* <h1>Profile({id})</h1> */}
+                <h1>Profile({id})</h1>
                 <div className="form-control my-3">{input}</div>
                 <div className="buttons">
                     <button onClick={() => handleClick('7')}>7</button>

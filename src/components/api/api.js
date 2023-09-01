@@ -17,14 +17,13 @@ function App() {
         setPostId(event.target.value);
     };
 
-    let handleViewDetails = () => {
-        const selected = data.find(item => item.id === parseInt(postId));
-        setSelectedPost(selected);
-    };
-
+    function handleViewDetails() {
+        const search = data.find(item => item.id === parseInt(postId));
+        setSelectedPost(search);
+    }
     return (
-        <div className='container'>
-
+        <div className='container col-lg-6 col'>
+            
             <div className="main">
                 <h1>Post API</h1>
                 <div className="search-container">
@@ -43,10 +42,10 @@ function App() {
                         <h3>Title: {selectedPost.title}</h3>
                         <p>Body: {selectedPost.body}</p>
                         <div className='row'>
-                            <div className='col-md-6'>
+                            <div className='col-md-6 col py-3'>
                                 <img src={selectedPost.thumbnailUrl} alt={`Thumbnail ${selectedPost.id}`} />
                             </div>
-                            <div className='col-md-6'>
+                            <div className='col-md-6 col py-3'>
                                 <img src={selectedPost.url} alt={`url ${selectedPost.id}`} />
                             </div>
                         </div>
