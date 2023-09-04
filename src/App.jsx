@@ -8,9 +8,10 @@ import Header from './components/Header/header';
 import Aboutus from './components/Aboutus/about'
 import Alert from './components/Alert/alert';
 import News from './components/newsapi';
-import Data from './components/newsapi/sample';
+import Data from './components/newsapi/location';
 import Calculator from './components/calculator';
 import Profile from './components/profile/profile';
+import ChangeColor from './components/newsapi/changecolour';
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/data" element={<Data />} />
         <Route path="/cal" element={<Calculator />} />
+        <Route path="/color" element={<ChangeColor />} />
         <Route path="/profile/:id/me" element={<Profile />} />
       </Routes>
     </BrowserRouter>

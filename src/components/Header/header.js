@@ -56,8 +56,13 @@ function Header(props) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/data">
+                <Link className="nav-link" to="/color">
                   change color
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/data">
+              Latitude,longitude
                 </Link>
               </li>
               <li className="nav-item">

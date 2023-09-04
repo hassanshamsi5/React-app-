@@ -23,13 +23,7 @@ const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 
-const khan = ()=>{
-  
-}
-
 const App = () => (
-  
-  
   <Form className='container col-lg-4 col'
     name="basic"
     labelCol={{
