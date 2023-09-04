@@ -3,6 +3,7 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { auth, createUserWithEmailAndPassword } from '../../config/firebase';
 
 const onFinish = (values) => {
+
   createUserWithEmailAndPassword(auth, values.email, values.password)
     .then((userCredential) => {
       // Signed in 
@@ -22,7 +23,13 @@ const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 
+const khan = ()=>{
+  
+}
+
 const App = () => (
+  
+  
   <Form className='container col-lg-4 col'
     name="basic"
     labelCol={{
