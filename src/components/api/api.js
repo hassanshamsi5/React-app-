@@ -9,7 +9,9 @@ function App() {
         // Fetch data from the API
         fetch('https://jsonplaceholder.typicode.com/photos')
             .then(response => response.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+            })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
@@ -23,7 +25,7 @@ function App() {
     }
     return (
         <div className='container col-lg-6 col'>
-            
+
             <div className="main">
                 <h1>Post API</h1>
                 <div className="search-container">

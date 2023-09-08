@@ -29,7 +29,7 @@ function App() {
   }
 
   const toggleMode = () => {
-     console.log("Current mode:", mode);  
+    console.log("Current mode:", mode);
 
     if (mode === "light") {
       setmode('dark')

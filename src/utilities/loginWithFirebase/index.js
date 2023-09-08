@@ -7,8 +7,8 @@ const onFinish = (values) => {
   createUserWithEmailAndPassword(auth, values.email, values.password)
     .then((userCredential) => {
       // Signed in 
-      const user = userCredential.user;
-      console.log(user, "users");
+        const user = userCredential.user;
+        console.log(user, "users");
       setInterval(() => {
         window.location.reload(false);
       }, 5000);
@@ -88,7 +88,7 @@ const App = () => (
         span: 16,
       }}
     >
-      
+
       <Button type="primary" htmlType="submit">
         Submit
       </Button>
