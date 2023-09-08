@@ -1,17 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+// import { useNavigate } from "react-router-dom";
+import { useParams, useLocation, Outlet, useSearchParams } from "react-router-dom";
 function Header(props) {
-  const navigate = useNavigate()
-  const login = () => {
-    navigate('../profile/HassanShamsi/me')
-  }
+  const { id } = useParams()
+  const { state } = useLocation()
+  const [user, setUser] = useState({})
+  let [searchParams, setSearchParams] = useSearchParams()
+  console.log("search".searchParams.get("user"));
+
+  useEffect(() => {
+    let userData = localStorage.getItem("user")
+    setUser(JSON.parse(userData))
+  }, [])
+  // const navigate = useNavigate()
+  // const login = () => {
+  //   navigate('../profile/HassanShamsi/me')
+  // }
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Navbar
+            Navbar ({user?.email})
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +30,7 @@ function Header(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <button className="btn btn-primary" onClick={login}>Login</button>
+              {/* <button className="btn btn-primary" onClick={login}>Login</button> */}
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
@@ -62,7 +73,7 @@ function Header(props) {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/data">
-              Latitude,longitude
+                  Latitude,longitude
                 </Link>
               </li>
               <li className="nav-item">

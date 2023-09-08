@@ -15,7 +15,7 @@ function App() {
             .catch(error => console.error('Error fetching data:', error));
 
     }, []);
-
+    
     let handlePostIdChange = event => {
         setPostId(event.target.value);
     };
@@ -26,7 +26,6 @@ function App() {
     }
     return (
         <div className='container col-lg-6 col'>
-
             <div className="main">
                 <h1>Post API</h1>
                 <div className="search-container">
