@@ -49,6 +49,7 @@ function App(props) {
     const handleChange = (event) => {
         setText(event.target.value);
     }
+
     return (
         <div>
             <div className="container">
@@ -56,7 +57,7 @@ function App(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleChange} id="myBox" cols="30" rows="10"></textarea>
                 </div>
-                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleDownClick}>LowerCase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={capitalizeText}>Capitalize Text</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={clearText}>Clear Text</button>
