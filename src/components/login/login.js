@@ -10,7 +10,7 @@ const login = ()=>{
         password
     }
    localStorage.setItem("user",JSON.stringify(user))
-   navigate('../Header/')
+   navigate('../Header')
 }
 
     return (
