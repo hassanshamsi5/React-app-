@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../../App.css';
 
 function App() {
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState('');
+
     const handleClick = (value) => {
-        setInput(input + value)
-    }
+        setInput((prevInput) => prevInput + value);
+    };
+
     const handleCalculate = () => {
         try {
-            const result = new Function('return ' + input)();
+            const result = eval(input);
             setInput(result.toString());
-            // setInput(eval(input).toString())
         } catch (error) {
-            setInput('Error')
+            setInput('Error');
         }
-    }
+    };
+
     const handleClear = () => {
-        setInput('')
-    }
+        setInput('');
+    };
+
     const Reset = () => {
-        setInput('')
-    }
+        setInput('');
+    };
+
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            const valueEntered = e.key;
+            console.log(valueEntered);
+            setInput((prevInput) => prevInput + valueEntered);
+        };
+
+        window.addEventListener('keypress', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, []);
+
 
 
     return (

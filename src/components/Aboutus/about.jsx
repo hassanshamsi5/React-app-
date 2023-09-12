@@ -25,6 +25,13 @@ export default function About() {
     }
     return (
         <div style={myStyle}>
+            <div className="col d-flex justify-content-end">
+                <label className="w3-switch ">
+                    <input onClick={toggleStyle} type="checkbox" />
+                    <span className="w3-slider w3-round"></span>
+                </label>
+                {btnText}
+            </div>
             <div className="container col-lg-6">
                 <h1>About Us</h1>
                 <div className="accordion" id="accordionExample">
@@ -66,15 +73,8 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            {/* <div className="container">
-                <button className='btn btn-primary my-3' onClick={toggleStyle}> {btnText} </button>
-            </div> */}
-            <div className="container my-3">
-                <label className="w3-switch">
-                    <input onClick={toggleStyle} type="checkbox" />
-                    <span className="w3-slider w3-round"></span>
-                </label>
-                {btnText}
+            <div className="container">
+                {/* <button className='btn btn-primary my-3' onClick={toggleStyle}> {btnText} </button> */}
             </div>
         </div>
     )

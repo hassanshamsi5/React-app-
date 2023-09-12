@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
-import { useParams, useLocation, Outlet, useSearchParams } from "react-router-dom";
+// import { useParams, useLocation, Outlet, useSearchParams } from "react-router-dom";
 function Header(props) {
-  const { id } = useParams()
-  const { state } = useLocation()
-  const [user, setUser] = useState({})
-  let [searchParams, setSearchParams] = useSearchParams()
-  console.log("search".searchParams.get("user"));
+  // const { id } = useParams()
+  // const { state } = useLocation()
+  // const [user, setUser] = useState({})
+  // let [searchParams, setSearchParams] = useSearchParams()
+  // console.log("search".searchParams.get("user"));
 
-  useEffect(() => {
-    let userData = localStorage.getItem("user")
-    setUser(JSON.parse(userData))
-  }, [])
+  // useEffect(() => {
+  //   let userData = localStorage.getItem("user")
+  //   setUser(JSON.parse(userData))
+  // }, [])
   // const navigate = useNavigate()
   // const login = () => {
   //   navigate('../profile/HassanShamsi/me')
@@ -22,13 +22,13 @@ function Header(props) {
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Navbar ({user?.email})
+            {/* Navbar ({user?.email}) */}
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* <button className="btn btn-primary" onClick={login}>Login</button> */}
               <li className="nav-item">
@@ -61,10 +61,19 @@ function Header(props) {
                   Login page firebase
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/news">
-                  News
-                </Link>
+              <li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" to="/news" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                News
+          </Link>
+                <ul className="dropdown-menu">
+                <li><Link className="dropdown-item" to="/news">News</Link></li>
+                  <li><Link className="dropdown-item" to="/Health">Health</Link></li>
+                  <li><Link className="dropdown-item" to="/General">General</Link></li>
+                  <li><Link className="dropdown-item" to="/Entertaiment">Entertaiment</Link></li>
+                  <li><Link className="dropdown-item" to="/Sports">Sports</Link></li>
+                  <li><Link className="dropdown-item" to="/Science">Science</Link></li>
+                  <li><Link className="dropdown-item" to="/Technology">Technology</Link></li>
+                </ul>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/color">

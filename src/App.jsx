@@ -13,7 +13,7 @@ import Calculator from './components/calculator';
 import Profile from './components/profile/profile';
 import ChangeColor from './components/newsapi/changecolour';
 import NotFound from './components/notFound'
-import LOGIN from './components/login/login'
+// import LOGIN from './components/login/login'
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 function App() {
@@ -46,38 +46,39 @@ function App() {
     }
   }
 
-  const [user, setUser] = useState(false)
-  useEffect(() => {
-    const isUser = localStorage.getItem("user")
-    if (isUser) {
-      setUser(true)
-    }
-  }, [])
+  // const [user, setUser] = useState(false)
+  // useEffect(() => {
+  //   const isUser = localStorage.getItem("user")
+  //   if (isUser) {
+  //     setUser(true)
+  //   }
+  // }, [])
   return (
     <BrowserRouter>
-      {/* <LOGIN /> */}
-      {/* <Header mode={mode} toggleMode={toggleMode} /> */}
-      {/* <Alert alert={alert} /> */}
-      {/* <Login /> */}
+      <Header mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
       <Routes>
         {/* <Route path="/" element={<Header mode={mode} toggleMode={toggleMode} />} /> */}
-        {/* <Route path="/" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
+        <Route path="/" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/api" element={<Api />} />
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/file" element={<File />} />
-        <Route path="/news" element={<News />} />
+        <Route path="/news" element={<News pageSize={5} key="General" country="us" category="General"/>} />
+        <Route path="/Sports" element={<News pageSize={5} key="Sports" country="us" category="Sports"/>} />
+        <Route path="/Technology" element={<News pageSize={5} key="Technology" country="us" category="Technology"/>} />
+        <Route path="/Entertaiment" element={<News pageSize={5} key="Entertaiment" country="us" category="Entertaiment"/>} />
+        <Route path="/Science" element={<News pageSize={5} key="Science" country="us" category="Science"/>} />
+        <Route path="/Health" element={<News pageSize={5} key="Health" country="us" category="Health"/>} />
         <Route path="/data" element={<Data />} />
         <Route path="/cal" element={<Calculator />} />
         <Route path="/color" element={<ChangeColor />} />
         <Route path="/profile/:id/me" element={<Profile />} />
-      <Route path="*" element={<NotFound />} />  */}
-
         <Route path="*" element={<NotFound />} />
-
-        <Route path="/login" element={user ? <Navigate to={'/header'} /> : <LOGIN />} />
-        <Route path="/header" element={user ? <Header /> : <Navigate to={'login'} />} />
+        {/* <Route path="/login" element={user ? <Navigate to={'/header'} /> : <LOGIN />} />
+        <Route path="/header" element={user ? <Header /> : <Navigate to={'login'} />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

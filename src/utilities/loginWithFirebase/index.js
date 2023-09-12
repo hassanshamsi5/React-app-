@@ -1,27 +1,16 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { auth, createUserWithEmailAndPassword } from '../../config/firebase';
-import { useNavigate } from 'react-router-dom';
+
 
 function App() {
-  const navigate = useNavigate(); 
-  
+
   const onFinish = (values) => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user, "users");
-
-
-        localStorage.setItem("user", true);
-
-
-        navigate('../../components/Header/header.js', {
-          state: {
-            name: "hassan shamsi"
-          }
-        });
 
         setInterval(() => {
           window.location.reload(false);

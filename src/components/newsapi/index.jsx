@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Spinner from './spinner';
 
 class App extends Component {
     constructor() {
@@ -11,53 +12,61 @@ class App extends Component {
     }
 
     async componentDidMount() {
-        try {
-            const url =
-                'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=93601a255729453c95a5b63dbbb92569&page2 pagesize=20';
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            this.setState({ articles: data.articles, loading: true, totalResults: data.totalResults });
+        // try {
+        // let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page + 1}&pagesize=${this.props.pageSize}`
+        this.setState({ loading: true })
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log(data);
+        this.setState({
+            articles: data.articles, loading: true,
+            totalResults: data.totalResults,
+            loading: false
+        });
+        // }
 
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
+        // catch (error) {
+        //     console.error('Error fetching data:', error);
+        // }
     }
     handleback = async () => {
-        let url =
-            `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page - 1}&pagesize=20`;
+        // let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page - 1}&pagesize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page + 1}&pagesize=${this.props.pageSize}`
+        this.setState({ loading: true })
         let response = await fetch(url);
         let data = await response.json();
         console.log(data);
         this.setState({
             page: this.state.page - 1,
-            articles: data.articles
+            articles: data.articles,
+            loading: false
         })
     }
-
+    // https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=93601a255729453c95a5b63dbbb92569
     handlenext = async () => {
-        if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
-        } else {
-
-            const url =
-                `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page + 1}&pagesize=20`;
+        if (!this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
+            // const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page + 1}&pagesize=${this.props.pageSize}`;
+            const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page + 1}&pagesize=${this.props.pageSize}`
+            this.setState({ loading: true })
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
             this.setState({
                 page: this.state.page + 1,
-                articles: data.articles
+                articles: data.articles,
+                loading: false
             })
+
         }
     }
-
     render() {
         return (
             <>
                 <div className="container col-lg-8 col-12 my-5">
                     <h1>News Articles</h1>
+                    {this.state.loading && <Spinner />}
                     <div className="news-container">
-                        {this.state.articles.map((article, index) => (
+                        {!this.state.loading && this.state.articles.map((article, index) => (
                             article.title &&
                             article.description && (
                                 <div key={index} className="article">
@@ -65,21 +74,23 @@ class App extends Component {
                                     {article.urlToImage && (
                                         <img className="img-fluid" src={article.urlToImage} alt="" />
                                     )}
-                                    <p>Author: {article.author}</p>
+                                    <span className="position-absolute translate-middle badge rounded-pill bg-danger">
+                                     {article.author}                               
+                                    </span>
                                     <p>Description: {article.description.slice(0, 25)}...</p>
                                     {article.source && article.source.name && (
                                         <p>Source: {article.source.name}</p>
                                     )}
                                     <p>Published At: {article.publishedAt}</p>
                                     {article.content && <p>{article.content.slice(0, 30)}</p>}
-                                    <a className="btn btn-primary my-2" href={article.url} target="_blank" rel="noopener noreferrer">See More</a>
+                                    <a className="btn btn-primary my-2" href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
                                 </div>
                             )
                         ))}
                     </div>
-                    <div className='container d-flex justify-content-between'>
+                    <div className='container d-flex justify-content-between fixed-bottom'>
                         <button disabled={this.state.page <= 1} className='btn btn-dark' onClick={this.handleback}>&larr; Back</button>
-                        <button className='btn btn-dark' onClick={this.handlenext}>Next &rarr;</button>
+                        <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} className='btn btn-dark' onClick={this.handlenext}>Next &rarr;</button>
                     </div>
                 </div>
             </>
@@ -88,3 +99,5 @@ class App extends Component {
 }
 
 export default App;
+
+// ek function hai us mai ek aur function hai us function mai ek aur function hai aur us function mai ek aur function hai tu jb tk pehla function chaly tu sarry function chaly warna koe na chaly
