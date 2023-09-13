@@ -45,7 +45,8 @@ function App() {
         <div className='container'>
             <div className="calculator">
                 <h1>Calculator</h1>
-                <div className="form-control my-3">{input}</div>
+                {/* <div className="form-control my-3">{input}</div> */}
+                <input type="text" className="form-control my-3" value={input} />
                 <div className="buttons">
                     <button onClick={() => handleClick('7')}>7</button>
                     <button onClick={() => handleClick('8')}>8</button>

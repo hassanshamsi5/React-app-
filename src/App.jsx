@@ -45,7 +45,12 @@ function App() {
       showAlert("Light mode has been enable", "success");
     }
   }
+  const [name, setName] = useState("");
 
+  useEffect(() => {
+    document.title = name; // Set the document title to the value of the `name` state variable
+  }, [name]); // Specify [name] as a dependency to ensure the effect runs when `name` changes
+console.log(name);
   // const [user, setUser] = useState(false)
   // useEffect(() => {
   //   const isUser = localStorage.getItem("user")
@@ -65,12 +70,13 @@ function App() {
         <Route path="/api" element={<Api />} />
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/file" element={<File />} />
-        <Route path="/news" element={<News pageSize={5} key="General" country="us" category="General"/>} />
-        <Route path="/Sports" element={<News pageSize={5} key="Sports" country="us" category="Sports"/>} />
-        <Route path="/Technology" element={<News pageSize={5} key="Technology" country="us" category="Technology"/>} />
-        <Route path="/Entertaiment" element={<News pageSize={5} key="Entertaiment" country="us" category="Entertaiment"/>} />
-        <Route path="/Science" element={<News pageSize={5} key="Science" country="us" category="Science"/>} />
-        <Route path="/Health" element={<News pageSize={5} key="Health" country="us" category="Health"/>} />
+        <Route path="/news" element={<News pageSize={15} key="news" country="us" category="News"/>} />
+        <Route path="/General" element={<News pageSize={15} key="General" country="us" category="General"/>} />
+        <Route path="/Sports" element={<News pageSize={15} key="Sports" country="us" category="Sports"/>} />
+        <Route path="/Technology" element={<News pageSize={15} key="Technology" country="us" category="Technology"/>} />
+        <Route path="/Entertaiment" element={<News pageSize={15} key="Entertaiment" country="us" category="Entertaiment"/>} />
+        <Route path="/Science" element={<News pageSize={15} key="Science" country="us" category="Science"/>} />
+        <Route path="/Health" element={<News pageSize={15} key="Health" country="us" category="Health"/>} />
         <Route path="/data" element={<Data />} />
         <Route path="/cal" element={<Calculator />} />
         <Route path="/color" element={<ChangeColor />} />
