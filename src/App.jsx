@@ -16,6 +16,7 @@ import NotFound from './components/notFound'
 import Footer from './components/Footer/footer';
 import Constant from './constant/cal'
 // import LOGIN from './components/login/login'
+import Home from './constant/time'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import {  Navigate } from "react-router-dom";
 function App() {
@@ -51,6 +52,7 @@ function App() {
 
   useEffect(() => {
     document.title = name;
+
   }, [name]); 
 
   // const [user, setUser] = useState(false)
@@ -67,6 +69,7 @@ function App() {
       <Alert alert={alert} />
       <Routes>
         {/* <Route path="/" element={<Header mode={mode} toggleMode={toggleMode} />} /> */}
+        <Route path="/" element={<Home/>} />
         <Route path="/TextForm" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Constant />} />

@@ -30,15 +30,15 @@ class App extends Component {
         this.updateNews()
     }
 
-    // handleback = async () => {
-    //     this.setState({ page: this.state.page - 1 })
-    //     this.updateNews()
-    // }
+    handleback = async () => {
+        this.setState({ page: this.state.page - 1 })
+        this.updateNews()
+    }
 
-    // handlenext = async () => {
-    //     this.setState({ page: this.state.page + 1 })
-    //     this.updateNews()
-    // }
+    handlenext = async () => {
+        this.setState({ page: this.state.page + 1 })
+        this.updateNews()
+    }
     fetchMoreData = async () => {
         this.setState({ page: this.state.page + 1 })
         let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page}&pagesize=${this.props.pageSize}`
@@ -51,7 +51,7 @@ class App extends Component {
             totalResults: data.totalResults,
             loading: false
         });
-    }
+    }   
     render() {
         return (
             <>
@@ -88,10 +88,10 @@ class App extends Component {
                             ))}
                         </InfiniteScroll>
                     </div>
-                    {/* <div className='container d-flex justify-content-between fixed-bottom'>
+                    <div className='container d-flex justify-content-between fixed-bottom'>
                         <button disabled={this.state.page <= 1} className='btn btn-dark' onClick={this.handleback}>&larr; Back</button>
                         <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} className='btn btn-dark' onClick={this.handlenext}>Next &rarr;</button>
-                    </div> */}
+                    </div>
                 </div>
             </>
         );

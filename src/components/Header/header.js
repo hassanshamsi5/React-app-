@@ -32,8 +32,13 @@ function Header(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* <button className="btn btn-primary" onClick={login}>Login</button> */}
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/TextForm">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" to="/TextForm">
+                  TextForm
                 </Link>
               </li>
               <li className="nav-item">

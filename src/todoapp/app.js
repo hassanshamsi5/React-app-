@@ -138,7 +138,6 @@ function App() {
   const deleteTodo = async (id) => {
     await deleteDoc(doc(db, 'todos', id));
   };
-
   return (
     <div className="container col-lg-8 col h-screen w-screen bg-gradient-primary to-secondary">
       <div className="bg-gradient-primary to-secondary max-w-500 w-full m-auto rounded-md shadow-lg">
