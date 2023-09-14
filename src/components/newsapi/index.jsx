@@ -51,8 +51,7 @@ class App extends Component {
             totalResults: data.totalResults,
             loading: false
         });
-    };
-
+    }
     render() {
         return (
             <>
@@ -66,12 +65,9 @@ class App extends Component {
                             hasMore={this.state.articles.length !== this.state.totalResults}
                             loader={<Spinner />}
                         >
-
-
                             {!this.state.loading && this.state.articles.map((article, index) => (
                                 article.title &&
                                 article.description && (
-
                                     <div key={index} className="article">
                                         <h2 className="my-3">{article.title.slice(0, 45)}...</h2>
                                         {article.urlToImage && (

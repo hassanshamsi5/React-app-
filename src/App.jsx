@@ -51,7 +51,6 @@ function App() {
 
   useEffect(() => {
     document.title = name;
-    console.log(document); 
   }, [name]); 
 
   // const [user, setUser] = useState(false)
