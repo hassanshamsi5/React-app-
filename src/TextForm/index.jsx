@@ -35,17 +35,19 @@ function App(props) {
         props.showAlert("Speak", "success")
     }
     const handleCopy = () => {
-        var text = document.getElementById('myBox')
-        text.select();
-        document.getSelection().removeAllRanges()
-        navigator.clipboard.writeText(text.value);
+        // ! var text = document.getElementById('myBox')
+        // ! text.select();
+        // ! document.getSelection().removeAllRanges()
+        navigator.clipboard.writeText(text);
         props.showAlert("Copy all Text", "success")
     }
     const handleExtraSpace = () => {
-        let newText = text.split(/[ ]+/)
-        setText(newText.join(" "))
-        props.showAlert("Remove Extra Space", "success")
+
+        const newText = text.split(/[ ]+/).join(" ");
+        setText(newText);
+        props.showAlert("Remove Extra Space", "success");
     }
+
     const handleChange = (event) => {
         setText(event.target.value);
     }
@@ -57,7 +59,7 @@ function App(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleChange} id="myBox" cols="30" rows="10"></textarea>
                 </div>
-                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleDownClick}>LowerCase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={capitalizeText}>Capitalize Text</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={clearText}>Clear Text</button>

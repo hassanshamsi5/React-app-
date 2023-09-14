@@ -7,18 +7,18 @@ class App extends Component {
         super(props);
         this.state = {
             articles: [],
-            loading: false,
+            loading: true,
             page: 1,
-            totalResults:0
+            totalResults: 0
         };
         document.title = this.props.category
     }
     async updateNews() {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page}&pagesize=${this.props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page}&pagesize=${this.props.pageSize}`
         this.setState({ loading: true })
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data);
+        console.log(data)
         this.setState({
             articles: data.articles,
             totalResults: data.totalResults,
@@ -39,19 +39,19 @@ class App extends Component {
     //     this.setState({ page: this.state.page + 1 })
     //     this.updateNews()
     // }
-    fetchMoreData =async ()=>{
+    fetchMoreData = async () => {
         this.setState({ page: this.state.page + 1 })
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page}&pagesize=${this.props.pageSize}`
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=93601a255729453c95a5b63dbbb92569&page=${this.state.page}&pagesize=${this.props.pageSize}`
         this.setState({ loading: true })
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data);
+        // console.log(data);
         this.setState({
-            articles: this.state.articles.concat(data.articles) ,
+            articles: this.state.articles.concat(data.articles),
             totalResults: data.totalResults,
             loading: false
         });
-    }
+    };
 
     render() {
         return (
@@ -64,33 +64,33 @@ class App extends Component {
                             dataLength={this.state.articles.length}
                             next={this.fetchMoreData}
                             hasMore={this.state.articles.length !== this.state.totalResults}
-                            loader={<Spinner/>}
+                            loader={<Spinner />}
                         >
 
-                       
-                        {!this.state.loading && this.state.articles.map((article, index) => (
-                            article.title &&
-                            article.description && (
 
-                                <div key={index} className="article">
-                                    <h2 className="my-3">{article.title.slice(0, 45)}...</h2>
-                                    {article.urlToImage && (
-                                        <img className="img-fluid" src={article.urlToImage} alt="" />
-                                    )}
-                                    {/* <span className="position-absolute translate-middle badge rounded-pill bg-danger">
+                            {!this.state.loading && this.state.articles.map((article, index) => (
+                                article.title &&
+                                article.description && (
+
+                                    <div key={index} className="article">
+                                        <h2 className="my-3">{article.title.slice(0, 45)}...</h2>
+                                        {article.urlToImage && (
+                                            <img className="img-fluid" src={article.urlToImage} alt="" />
+                                        )}
+                                        {/* <span className="position-absolute translate-middle badge rounded-pill bg-danger">
                                         {article.author}
                                     </span> */}
-                                    <p>Description: {article.description.slice(0, 25)}...</p>
-                                    {article.source && article.source.name && (
-                                        <p>Source: {article.source.name}</p>
+                                        <p>Description: {article.description.slice(0, 25)}...</p>
+                                        {article.source && article.source.name && (
+                                            <p>Source: {article.source.name}</p>
                                         )}
-                                    <p>Published At: {article.publishedAt}</p>
-                                    {article.content && <p>{article.content.slice(0, 30)}</p>}
-                                    <a className="btn btn-primary my-2" href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
-                                </div>
-                            )
+                                        <p>Published At: {article.publishedAt}</p>
+                                        {article.content && <p>{article.content.slice(0, 30)}</p>}
+                                        <a className="btn btn-primary my-2" href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
+                                    </div>
+                                )
                             ))}
-                            </InfiniteScroll>
+                        </InfiniteScroll>
                     </div>
                     {/* <div className='container d-flex justify-content-between fixed-bottom'>
                         <button disabled={this.state.page <= 1} className='btn btn-dark' onClick={this.handleback}>&larr; Back</button>
@@ -103,5 +103,3 @@ class App extends Component {
 }
 
 export default App;
-
-// ek function hai us mai ek aur function hai us function mai ek aur function hai aur us function mai ek aur function hai tu jb tk pehla function chaly tu sarry function chaly warna koe na chaly

@@ -13,9 +13,11 @@ import Calculator from './components/calculator';
 import Profile from './components/profile/profile';
 import ChangeColor from './components/newsapi/changecolour';
 import NotFound from './components/notFound'
+import Footer from './components/Footer/footer';
+import Constant from './constant/cal'
 // import LOGIN from './components/login/login'
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import {  Navigate } from "react-router-dom";
 function App() {
   const [mode, setmode] = useState('light')
   const [alert, setalert] = useState(null)
@@ -48,9 +50,10 @@ function App() {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    document.title = name; // Set the document title to the value of the `name` state variable
-  }, [name]); // Specify [name] as a dependency to ensure the effect runs when `name` changes
-console.log(name);
+    document.title = name;
+    console.log(document); 
+  }, [name]); 
+
   // const [user, setUser] = useState(false)
   // useEffect(() => {
   //   const isUser = localStorage.getItem("user")
@@ -58,27 +61,29 @@ console.log(name);
   //     setUser(true)
   //   }
   // }, [])
+  
   return (
     <BrowserRouter>
       <Header mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <Routes>
         {/* <Route path="/" element={<Header mode={mode} toggleMode={toggleMode} />} /> */}
-        <Route path="/" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
+        <Route path="/TextForm" element={<Text showAlert={showAlert} heading="Convert Lower case to Uppercase" />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/calendar" element={<Constant />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/api" element={<Api />} />
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/file" element={<File />} />
-        <Route path="/news" element={<News pageSize={15} key="news" country="us" category="News"/>} />
-        <Route path="/General" element={<News pageSize={15} key="General" country="us" category="General"/>} />
-        <Route path="/Sports" element={<News pageSize={15} key="Sports" country="us" category="Sports"/>} />
-        <Route path="/Technology" element={<News pageSize={15} key="Technology" country="us" category="Technology"/>} />
-        <Route path="/Entertaiment" element={<News pageSize={15} key="Entertaiment" country="us" category="Entertaiment"/>} />
-        <Route path="/Science" element={<News pageSize={15} key="Science" country="us" category="Science"/>} />
-        <Route path="/Health" element={<News pageSize={15} key="Health" country="us" category="Health"/>} />
+        <Route path="/news" element={<News pageSize={5} key="news" country="us" category="News" />} />
+        <Route path="/General" element={<News pageSize={5} key="General" country="us" category="General" />} />
+        <Route path="/Sports" element={<News pageSize={5} key="Sports" country="us" category="Sports" />} />
+        <Route path="/Technology" element={<News pageSize={5} key="Technology" country="us" category="Technology" />} />
+        <Route path="/Entertaiment" element={<News pageSize={5} key="Entertaiment" country="us" category="Entertaiment" />} />
+        <Route path="/Science" element={<News pageSize={5} key="Science" country="us" category="Science" />} />
+        <Route path="/Health" element={<News pageSize={5} key="Health" country="us" category="Health" />} />
         <Route path="/data" element={<Data />} />
-        <Route path="/cal" element={<Calculator />} />
+        <Route path="/calculator" element={<Calculator />} />
         <Route path="/color" element={<ChangeColor />} />
         <Route path="/profile/:id/me" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
@@ -86,6 +91,7 @@ console.log(name);
         <Route path="/header" element={user ? <Header /> : <Navigate to={'login'} />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

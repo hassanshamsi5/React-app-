@@ -32,41 +32,41 @@ function Header(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* <button className="btn btn-primary" onClick={login}>Login</button> */}
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link active" aria-current="page" to="/TextForm">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/About">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/api">
+                <Link className="nav-link" to="/Api">
                   API
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/todo">
+                <Link className="nav-link" to="/Todo">
                   TodoApp
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/file">
+                <Link className="nav-link" to="/File">
                   File
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/login">
+                <Link className="nav-link" to="/Login">
                   Login page firebase
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="/news" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                News
-          </Link>
+                <Link className="nav-link dropdown-toggle" to="/News" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  News
+                </Link>
                 <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to="/news">News</Link></li>
+                  <li><Link className="dropdown-item" to="/news">News</Link></li>
                   <li><Link className="dropdown-item" to="/Health">Health</Link></li>
                   <li><Link className="dropdown-item" to="/General">General</Link></li>
                   <li><Link className="dropdown-item" to="/Entertaiment">Entertaiment</Link></li>
@@ -76,23 +76,28 @@ function Header(props) {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/color">
+                <Link className="nav-link" to="/Color">
                   change color
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/data">
+                <Link className="nav-link" to="/Data">
                   Latitude,longitude
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cal">
+                <Link className="nav-link" to="/Calculator">
                   Calculator
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/profile">
+                <Link className="nav-link" to="/Profile">
                   Profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Calendar">
+                 Calendar
                 </Link>
               </li>
             </ul>
