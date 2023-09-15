@@ -76,7 +76,7 @@
 //             {todos.map((todo, index) => (
 //               <Todo
 //                 key={index}
-//                 todo={todo}
+//                  todo={todo}
 //                 toggleComplete={toggleComplete}
 //                 deleteTodo={deleteTodo}
 //               />
@@ -155,18 +155,9 @@ function App() {
           </button>
         </form>
         <ul>
-          {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              todo={todo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
-            />
-          ))}
+          {todos.map((todo, index) => (<Todo key={index} todo={todo} toggleComplete={toggleComplete} deleteTodo={deleteTodo}/>))}
         </ul>
-        {todos.length < 1 ? null : (
-          <p className="text-center p-2">{`You have ${todos.length} todos`}</p>
-        )}
+        {todos.length < 1 ? null : (<p className="text-center p-2">{`You have ${todos.length} todos`}</p>)}
       </div>
     </div>
   );

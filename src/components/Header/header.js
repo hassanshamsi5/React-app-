@@ -17,12 +17,15 @@ function Header(props) {
   // const login = () => {
   //   navigate('../profile/HassanShamsi/me')
   // }
+
+
+//ek website hai example www.example.pk wo nae chalti lekin agar example.pk likhty hain tu chal jati hai solve the problem
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container">
           <Link className="navbar-brand" to="/">
-            {/* Navbar ({user?.email}) */}
+            {/* Navbar ({user?.email}) */} 
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -102,7 +105,7 @@ function Header(props) {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/Calendar">
-                 Calendar
+                  Calendar
                 </Link>
               </li>
             </ul>
@@ -121,5 +124,4 @@ function Header(props) {
 }
 
 export default Header;
-
 

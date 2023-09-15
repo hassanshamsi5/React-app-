@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import File from '../src/components/file/file'
+import File from '../src/components/increment/decreament/file'
 import Text from './TextForm/index'
 import TodoApp from './todoapp/app'
 import Api from './components/api/api'
